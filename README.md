@@ -3,7 +3,7 @@
 
 **Description:**
 
-A javascript single page web application (git repo here https://https://github.com/eagrundy/dream_catcher_backend) where users can see and submit a list of dreams/goals to a database handled in the backend by Ruby on Rails.
+A javascript single page web application (git repo here https://github.com/eagrundy/dream_catcher_backend) where users can see and submit a list of dreams/goals to a database handled in the backend by Ruby on Rails.
 
 The user can also update and/or delete a dream, and view dreams by categories.
 
