@@ -1,0 +1,1 @@
+## A JavaScript application with a Ruby/Rails backend
