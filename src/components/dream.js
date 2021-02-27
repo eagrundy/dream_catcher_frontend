@@ -1,18 +1,18 @@
-class Dream {
-    constructor(dreamJSON) {
-        this.id = dreamJSON.id
-        this.name = dreamJSON.name
-        this.image_url = dreamJSON.image_url
-        this.description = dreamJSON.description
-        this.achieved = dreamJSON.achieved
-        this.date_achieved = dreamJSON.date_achieved
-        this.category_id = dreamJSON.category_id
-    }
-    renderLi() {
-        return `<li>${this.name}</li>`
-    }
+// class Dream {
+//     constructor(dreamJSON) {
+//         this.id = dreamJSON.id
+//         this.name = dreamJSON.name
+//         this.image_url = dreamJSON.image_url
+//         this.description = dreamJSON.description
+//         this.achieved = dreamJSON.achieved
+//         this.date_achieved = dreamJSON.date_achieved
+//         this.category_id = dreamJSON.category_id
+//     }
+//     renderLi() {
+//         return `<li>${this.name}</li>`
+//     }
     
-}
+// }
 
 //     static all = []
 

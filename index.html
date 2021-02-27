@@ -10,29 +10,29 @@
     <header>
     <h1>Dreams Catcher</h1>
     </header>
-    <main>
+   
     <div class="container">
-        <div class="new-category-container">
+        <div id="new-category-container">
             <form id="new-category-form">
                 <input type="text" name="category-name" id="new-category-name">
                 <input type="submit" value="Add New Category">
             </form>
         </div>
-        <div class="categories-container">
+        <ul id="categories-container">
 
             <!-- <div id="dream-show"> -->
 
         
-        </div>
+        </ul>
     </div>
     
-</main>
+
     
-    <script src="src/adapters/categoriesAdapter.js"></script>
+    <script type="text/javascript" src="src/components/category.js"></script>
     <script src="src/components/categories.js"></script>
-    <script src="src/components/category.js"></script>
-    <script src="src/components/dream.js"></script>
     <script src="src/components/app.js"></script>
+    <script src="src/adapters/categoriesAdapter.js"></script>
+    <script src="src/components/dream.js"></script>
     <script src="src/index.js"></script>
 </body>
 </html>

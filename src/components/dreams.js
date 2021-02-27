@@ -8,6 +8,14 @@ class Dreams {
 
     initiBindingsAndEventListeners() {
         this.dreamsContainer = document.getElementById('dreams-container')
+        this.dreamForm = document.getElementById('new-dream-form')
+        this.dreamForm = addEventListener('submit', this.createDream.bind(this))
+    }
+
+    createDream(e) {
+        e.preventDefault()
+        const value = this.newDreamName.value
+        
     }
 
     fetchAndLoadDreams() {
