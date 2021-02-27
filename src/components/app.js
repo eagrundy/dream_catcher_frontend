@@ -1,5 +1,5 @@
 class App {
     constructor() {
-        this.dreams = new Dreams()
+        this.categories = new Categories()
     }
 }
