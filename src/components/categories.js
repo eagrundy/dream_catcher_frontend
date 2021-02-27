@@ -22,6 +22,7 @@ class Categories {
 
         this.adapter.createCategory(value).then(category => {
             this.categories.push(new Category(category))
+            this.newCategoryName.value = ''
             this.render()
         })
     }
