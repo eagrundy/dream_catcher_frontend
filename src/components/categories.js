@@ -12,7 +12,6 @@ class Categories {
         this.newCategoryName = document.getElementById("new-category-name")
         this.categoryForm = document.getElementById('new-category-form')
         // this.categoryForm = addEventListener('submit', this.addCategory.bind(this))
-        // this.newCategoryForm = document.getElementById("new-category-form")
         this.categoryForm.addEventListener('submit', this.createCategory.bind(this))
     }
 
