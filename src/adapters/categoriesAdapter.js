@@ -27,6 +27,10 @@ class CategoriesAdapter {
         }).then(res => res.json())
     }
 
+    getDreams() {
+        return fetch(this.dreamsUrl).then(res => res.json())
+    }
+
     createDream(newDream) {
         const formData = {
             content: newDream.content, 
