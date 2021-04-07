@@ -1,1 +1,5 @@
-const app = new App()
+document.addEventListener('DOMContentLoaded', function(){
+    Category.fetchCategories()
+    Dream.listenForEvents()
+
+ })
