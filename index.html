@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dreams Catcher</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dreams Catcher</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
+
 <body>
 
-    <!-- <header> -->
-        <nav class="nav is-primary is-white">
-            <div class="navbar-brand">
-                <a class="navbar-item">
-                    <img src="images/dream.jpg" alt="site logo" style="max-height: 80px">
-                    <div class="container">
-                    <a class="title is-1">Dreams Catcher</a><br>
-                    <a class="subtitle">Track your dreams</a>
-                    </div>
-                </a>
-            </div>
-        </nav><br>
-    <!-- </header> -->
-   
-    <div class="container">
-        <div id="new-dream-container">
-            <form id="new-dream-form">
-                <input type="text" name="dream-name" id="new-dream-name">
-                <input type="text" name="dream-name" id="new-dream-name">
-                <input type="text" name="dream-name" id="new-dream-name">
-                <input type="text" name="dream-name" id="new-dream-name">
-                <input type="submit" value="Add New Dream">
-            </form>
-        </div><br>
-        <ul id="dreams-container">
-            
-            <!-- <div id="dream-show"> -->
-        </ul>        
+  <!-- <header> -->
+  <nav class="nav is-primary is-white">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <img src="images/dream.jpg" alt="site logo" style="max-height: 100px">
+        <div class="container">
+          <a class="title is-1">Dreams Catcher</a><br>
+          <a class="subtitle">Track your dreams</a>
         </div>
-    
+      </a>
+    </div>
+  </nav><br>
+  <!-- </header> -->
 
-    
+  <center>
+    <h3>Add a new Dream:</h3>
+    <br>
+    <form id="dream-form">
+      <label for="dream-name">Name:</label><br>
+      <input type="text" name="name" id="dream-name"><br>
+      <label for="dream-image">Image:</label><br>
+      <input type="text" name="image" id="dream-image"><br>
+      <label for="dream-description">Description:</label><br>
+      <input type="textarea" name="description" id="dream-description" rows="4" cols="50"><br>
+      <label for="achieved">Achieved?</label><br>
+      <input type="text" name="achieved" id="dream-achieved"><br>
+      <input type="submit" value="Create">
+    </form>
+  </center><br>
 
-    <script type="text/javascript" src="src/dream.js"></script>
-    <script type="text/javascript" src="src/category.js"></script>
-    <script type="text/javascript" src="src/index.js"></script>
+  <center>
+    <ul id="dream-list"></ul>
+  </center><br>
+
+
+
+
+  <script type="text/javascript" src="src/dream.js"></script>
+  <script type="text/javascript" src="src/dreamApi.js"></script>
+  <!-- <script type="text/javascript" src="src/category.js"></script> -->
+  <script type="text/javascript" src="src/index.js"></script>
 </body>
+
 </html>
