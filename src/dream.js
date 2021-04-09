@@ -23,6 +23,43 @@ class Dream {
         Dream.all.push(this)
     }
 
+    static filterByCategory(filteredCategory){
+        // display only the items in the active category
+        // if no categories are active, display all
+        if(filteredCategory){
+            for(const dream of Dream.all){
+                if(dream.categoryId === parseInt(filteredCategory.id)){
+                    //unhide 
+                    dream.element.style.display = "";
+                }else{
+                    //hide element
+                    dream.element.style.display = "none";
+                }
+            }
+
+
+            // const filteredItems = Item.all.filter((item) => {
+            //     return item.category_id === parseInt(filteredCategory.id)
+            // }) 
+
+            // // only the filtered items appear on the DOM
+            // // remove all things from DOM
+            // Item.container.innerHTML = ''
+            // // use our attach to dom and put the filtered ones back on
+            // for(const item of filteredItems){
+            //     item.attachToDom()
+            // }
+        } else {
+              // remove all things from DOM
+            //   Item.container.innerHTML = ''
+              // use our attach to dom and put all the itemso back on
+              for(const dream of Dream.all){
+                //   item.attachToDom()
+                dream.element.style.display = ""
+              }
+        }
+    }
+
     // arrow function because it is used as a callback in an event listener
     handleLiClick = (e) => {
         if (e.target.innerText === "Edit") {

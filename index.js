@@ -9,7 +9,6 @@ const descriptionInput = document.getElementById('dream-description')
 const achievedInput = document.getElementById('dream-achieved')
 const dateAchievedInput = document.getElementById('dream-dateachieved')
 const dropdown = document.getElementById('cat-dropdown')
-const catNameInput = document.getElementById("category-name")
 
 
 form.addEventListener('submit', handleSubmit)
