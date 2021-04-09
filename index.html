@@ -31,15 +31,27 @@
     <form id="dream-form">
       <label for="dream-name">Name:</label><br>
       <input type="text" name="name" id="dream-name"><br>
-      <label for="dream-image">Image:</label><br>
-      <input type="text" name="image" id="dream-image"><br>
+      <label for="dream-image">Image Url:</label><br>
+      <input type="text" name="image_url" id="dream-image"><br>
       <label for="dream-description">Description:</label><br>
       <input type="textarea" name="description" id="dream-description" rows="4" cols="50"><br>
-      <label for="achieved">Achieved?</label><br>
+      <label for="dream-achieved">Achieved?</label><br>
       <input type="text" name="achieved" id="dream-achieved"><br>
+      <label for="dream-dateachieved">Date Achieved:</label><br>
+      <input type="date" name="date_achieved" id="dream-dateachieved"><br>
+      <label for="cat-dropdown">Category:</label><br>
+      <!-- <input type="text" name="category" id="category-name"> -->
+      <select name="category_id" id="cat-dropdown">
+
+      </select><br>
       <input type="submit" value="Create">
     </form>
-  </center><br>
+  </center><br><br>
+
+  <center>
+    <h2>Filter by Category:</h2><br>
+    <div id="cat-container"></div>
+  </center><br><br>
 
   <center>
     <ul id="dream-list"></ul>
@@ -47,11 +59,11 @@
 
 
 
-
-  <script type="text/javascript" src="src/dream.js"></script>
-  <script type="text/javascript" src="src/dreamApi.js"></script>
-  <!-- <script type="text/javascript" src="src/category.js"></script> -->
-  <script type="text/javascript" src="src/index.js"></script>
+  <script src="src/category.js" type="text/javascript"></script>
+  <script src="src/categoryApi.js" type="text/javascript"></script>
+  <script src="src/dream.js" type="text/javascript"></script>
+  <script src="src/dreamApi.js" type="text/javascript"></script>
+  <script src="index.js" type="text/javascript"></script>
 </body>
 
 </html>
