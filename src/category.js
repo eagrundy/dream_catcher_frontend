@@ -1,61 +1,62 @@
-const baseURL = "http://localhost:3000/"
-const categoriesList = document.querySelector("#categories-list")
-const categoryShow = document.querySelector("#category-show")
 
 class Category {
     static all = []
-    constructor({id, name}) {
-        this.id = id
+
+    static categoryContainer = document.getElementById('cat-container')
+
+    constructor({id, name}){
+        this.id = id 
         this.name = name
+
+        this.element = document.createElement('button')
+
         Category.all.push(this)
     }
 
-    static fetchCategories(){
-        fetch(baseURL + "categories")
-        .then(res => res.json())
-        .then(categoryData => {
-            categoryData.forEach(category => {
-                let x = new Category(category)
-                x.addToDom()
-            })
-        })
+    dreams(){
+        return Dream.all.filter((dream) => dream.categoryId == this.id)
+    }
+    
+
+    render(){
+        this.element.innerText = this.name 
+        this.element.id = `category-${this.id}`
+        return this.element
     }
 
     addToDom(){
-        // this.categoriesList.appendChild(this.setElementHTML())
-        let cn = document.createElement('h1');
-        cn.src = this.name
-        cn.id = `category-${this.id}`
-        // cn.categoryName = 'coffee-size'
-        categoriesList.appendChild(cn)
-        // img.addEventListener('click',(e) => this.handleClick(e))
+        Category.categoryContainer.append(this.render())
+        // this.addListeners()
     }
 
-//     setElementHTML(){
-//         this.element.innerHTML = `
-//         <h1>${this.name}</h1>
-//         `   
-//         return this.element
-//    }
-    
-    // renderLi() {
-    //     return `<li>${this.name}</li>`
+    // addListeners(){
+    //     this.element.addEventListener('click', this.setActiveCategory)
     // }
+
+    // setActiveCategory = (e) => {
+    //     let filteredCategory 
+    //     Category.all.forEach(c => {
+    //         if(c.element === this.element && !this.active){
+    //             c.element.classList.add('activated')
+    //             c.active = true
+    //             filteredCategory = c
+    //         }else{
+    //             c.element.classList.remove('activated')
+    //             c.active = false
+    //         }
+
+    //         Item.filterByCategory(filteredCategory)
+    //     }) 
+    // }
+
+
+    addToDropDown(){
+        const option = document.createElement('option')
+        option.value  = this.id 
+        option.innerText = this.name
+        dropdown.append(option)
+    }
+   
 }
 
 
-
-
-
-// constructor(categoryJSON) {
-//     this.name = categoryJSON.name
-//     this.id = categoryJSON.id
-//     this.image_url = categoryJSON.image_url
-//     this.description = categoryJSON.description
-//     this.achieved = categoryJSON.achieved
-//     this.date_achieved = categoryJSON.date_achieved
-//     this.dreams = categoryJSON.dreams
-//     this.adapter = new CategoriesAdapter()
-//     // this.addBindings()
-//     // this.renderCategory()
-// }
