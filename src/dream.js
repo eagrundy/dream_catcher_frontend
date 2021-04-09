@@ -9,8 +9,9 @@ class Dream {
         this.description = description
         this.image_url = image_url
         this.achieved = achieved
-        this.date_achieved = date_achieved
+        this.dateAchieved = date_achieved
         this.id = id
+        this.categoryId = category_id
 
         // setup the html element that contain the dream
         this.element = document.createElement('li')
@@ -28,14 +29,41 @@ class Dream {
             e.target.innerText = "Save"
             this.createEditFields(e.target)
         } else if (e.target.innerText === "Delete") {
-            this.deleteItem(e)
+            this.deleteDream(e)
         } else if (e.target.innerText === "Save") {
             e.target.innerText = "Edit"
             // save this info to the DB
             // turn all input fields back into spans
-            this.saveUpdatedItem()
+            this.saveUpdatedDream()
         }
     }
+
+    // createEditFields = (editBtn) => {
+    //     const li = this.element
+    //     const div = this.element.querySelector('div')
+
+    //     for (const e of div.children) {
+    //         let inputValue = e.innerText
+    //         let name = e.classList[0]
+    //         e.outerHTML = `<input type="text" class="edit-${name}" value="${inputValue}">`
+    //     }
+    // }
+
+    deleteDream = (e) => {
+        this.element.remove() // remove it before the fetch request 
+        dreamApi.deleteDream(this.id)
+    }
+
+    // saveUpdatedDream = () => {
+    //     this.name = this.element.querySelector(".edit-name").value
+    //     this.image_url = this.element.querySelector(".edit-image_url").value
+    //     this.description = this.element.querySelector(".edit-description").value
+    //     this.achieved = this.element.querySelector(".edit-achieved").value
+    //     this.date_achieved = this.element.querySelector(".edit-date_achieved").value
+
+    //     dreamApi.editDream(this)
+    // }
+
 
     render() {
         // innerHTMl only replaces what is inside the li
@@ -43,10 +71,10 @@ class Dream {
             <div data-id="${this.id}">
             <li>
             <strong><h1>${this.name}</h1></strong>
-                <img src=${this.image_url} width="300" height="300" alt=""><br>
+                <img src=${this.image_url} width="300" height="300" alt="..."><br>
                 <span class="description">${this.description}</span><br>
-                <span class="achieved">${this.achieved ? 'YES' : 'Not Yet'}</span><br>
-                <span class="date_achieved">${this.date_achieved}</span>
+                <span class="achieved">${this.achieved}</span><br>
+                <span class="dateAchieved">${this.dateAchieved}</span>
             </div>
             <button class="edit" data-id="${this.id}">Edit</button>
             <button class="delete" data-id="${this.id}">Delete</button>
@@ -59,36 +87,5 @@ class Dream {
         this.render()
         Dream.container.appendChild(this.element)
     }
-
-    // static fetchDreams(id){
-    //     fetch(`http://localhost:3000/categories/${id}/dreams`)
-    //     .then(res => res.json())
-    //     .then(dreamData => {
-    //         dreamData.forEach(dream => {
-    //             let d = new Dream(dream)
-    //             d.addToDom()
-    //         })
-    //     })
-    // }
-
-    // addToDom(){
-    //     this.dreamsList.appendChild(this.setElementHTML())
-    // }
-
-    // renderLi() {
-    //     // return `<li>${this.name}
-    //     // ${this.description}</li>`
-    //     return `
-    //     <li>
-    // <strong><h1>${this.name}</h1></strong>
-    // <img src=${this.image_url} width="300" height="300" alt="">
-    //         <h3>${this.description}</h3><br>
-    //         <h3>Dream Achieved? ${this.achieved ? 'YES' : 'Not Yet'}</h3>
-    //         <h3>Date Achieved: ${this.date_achieved}</h3>
-    //         <h3>${this.category_id}</h3>
-    //     <button data-id=${this.id}>edit</button>
-    //   </h3>
-    // </li><br>`;
-    // }
 
 }
