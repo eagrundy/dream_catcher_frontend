@@ -7,7 +7,6 @@ const nameInput = document.getElementById('dream-name')
 const imageInput = document.getElementById('dream-image')
 const descriptionInput = document.getElementById('dream-description')
 const achievedInput = document.getElementById('dream-achieved')
-const dateAchievedInput = document.getElementById('dream-dateachieved')
 const dropdown = document.getElementById('cat-dropdown')
 
 
@@ -22,3 +21,9 @@ function handleSubmit(e){
 
 dreamApi.getDreams()
 categoryApi.getCategories()
+
+
+
+
+
+// const dateAchievedInput = document.getElementById('dream-dateachieved')

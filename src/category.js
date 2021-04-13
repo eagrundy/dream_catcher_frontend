@@ -4,7 +4,7 @@ class Category {
 
     static categoryContainer = document.getElementById('cat-container')
 
-    constructor({id, name}){
+    constructor({ id, name}){
         this.id = id 
         this.name = name
         this.active = false
