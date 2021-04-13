@@ -4,14 +4,14 @@ class Dream {
     static all = []
     static container = document.getElementById('dream-list')
 
-    constructor({ id, name, description, image_url, achieved, date_achieved, category_id }) {
+    constructor({ id, name, description, image_url, achieved, category_id, category }) {
         this.name = name
         this.description = description
         this.image_url = image_url
         this.achieved = achieved
-        this.dateAchieved = date_achieved
         this.id = id
         this.categoryId = category_id
+        this.category = category
 
         // setup the html element that contain the dream
         this.element = document.createElement('li')
@@ -37,24 +37,12 @@ class Dream {
                 }
             }
 
-
-            // const filteredItems = Item.all.filter((item) => {
-            //     return item.category_id === parseInt(filteredCategory.id)
-            // }) 
-
-            // // only the filtered items appear on the DOM
-            // // remove all things from DOM
-            // Item.container.innerHTML = ''
-            // // use our attach to dom and put the filtered ones back on
-            // for(const item of filteredItems){
-            //     item.attachToDom()
-            // }
         } else {
               // remove all things from DOM
             //   Item.container.innerHTML = ''
-              // use our attach to dom and put all the itemso back on
+              // use our add to dom and put all the dreams back on
               for(const dream of Dream.all){
-                //   item.attachToDom()
+                //   dream.addToDom()
                 dream.element.style.display = ""
               }
         }
@@ -62,60 +50,33 @@ class Dream {
 
     // arrow function because it is used as a callback in an event listener
     handleLiClick = (e) => {
-        if (e.target.innerText === "Edit") {
-            e.target.innerText = "Save"
-            this.createEditFields(e.target)
-        } else if (e.target.innerText === "Delete") {
+        if (e.target.innerText === "Delete") {
             this.deleteDream(e)
-        } else if (e.target.innerText === "Save") {
-            e.target.innerText = "Edit"
-            // save this info to the DB
-            // turn all input fields back into spans
-            this.saveUpdatedDream()
         }
     }
 
-    // createEditFields = (editBtn) => {
-    //     const li = this.element
-    //     const div = this.element.querySelector('div')
-
-    //     for (const e of div.children) {
-    //         let inputValue = e.innerText
-    //         let name = e.classList[0]
-    //         e.outerHTML = `<input type="text" class="edit-${name}" value="${inputValue}">`
-    //     }
-    // }
 
     deleteDream = (e) => {
         this.element.remove() // remove it before the fetch request 
         dreamApi.deleteDream(this.id)
     }
 
-    // saveUpdatedDream = () => {
-    //     this.name = this.element.querySelector(".edit-name").value
-    //     this.image_url = this.element.querySelector(".edit-image_url").value
-    //     this.description = this.element.querySelector(".edit-description").value
-    //     this.achieved = this.element.querySelector(".edit-achieved").value
-    //     this.date_achieved = this.element.querySelector(".edit-date_achieved").value
-
-    //     dreamApi.editDream(this)
-    // }
-
 
     render() {
+        const isAchieved = this.dateAchieved === "Yes"
         // innerHTMl only replaces what is inside the li
         this.element.innerHTML = `
             <div data-id="${this.id}">
             <li>
-            <strong><h1>${this.name}</h1></strong>
-                <img src=${this.image_url} width="300" height="300" alt="..."><br>
-                <span class="description">${this.description}</span><br>
-                <span class="achieved">${this.achieved}</span><br>
-                <span class="dateAchieved">${this.dateAchieved}</span>
-            </div>
-            <button class="edit" data-id="${this.id}">Edit</button>
-            <button class="delete" data-id="${this.id}">Delete</button>
-            </li>
+            <h1><strong><u>${this.name}</u></strong></h1><br>
+                <img src=${this.image_url} width="300" height="300" alt="..."><br><br>
+                <span class="description">${this.description}</span><br><br>
+                <span class="achieved"><u>Achieved?</u> ${this.achieved}</span><br>
+                <span class="dreamCategory"><u>Category</u>: ${this.category.name}</span>
+            </div><br>
+            <i>Delete this dream ></i>
+            <button class="delete is-large" data-id="${this.id}">Delete</button><br>
+            </li><br><br>
         `
         return this.element
     }
@@ -126,3 +87,40 @@ class Dream {
     }
 
 }
+
+
+
+
+// createEditFields = (editBtn) => {
+//     const li = this.element
+//     const div = this.element.querySelector('div')
+
+//     for (const e of div.children) {
+//         let inputValue = e.innerText
+//         let name = e.classList[0]
+//         e.outerHTML = `<input type="text" class="edit-${name}" value="${inputValue}">`
+//     }
+// }
+
+
+// saveUpdatedDream = () => {
+    //     this.name = this.element.querySelector(".edit-name").value
+    //     this.image_url = this.element.querySelector(".edit-image_url").value
+    //     this.description = this.element.querySelector(".edit-description").value
+    //     this.achieved = this.element.querySelector(".edit-achieved").value
+    //     this.date_achieved = this.element.querySelector(".edit-date_achieved").value
+
+    //     dreamApi.editDream(this)
+    // }
+
+
+    // if (e.target.innerText === "Edit") {
+        //     e.target.innerText = "Save"
+        //     this.createEditFields(e.target)
+        // } else if (e.target.innerText === "Delete") {
+        //     this.deleteDream(e)
+        // } else if (e.target.innerText === "Save") {
+        //     e.target.innerText = "Edit"
+        //     // save this info to the DB
+        //     // turn all input fields back into spans
+        //     this.saveUpdatedDream()

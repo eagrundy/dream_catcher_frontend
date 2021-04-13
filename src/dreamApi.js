@@ -20,12 +20,14 @@ class DreamApi {
 
     createDream() {
         const dreamInfo = {
-            name: nameInput.value,
-            image_url: imageInput.value,
-            description: descriptionInput.value,
-            achieved: achievedInput.value,
-            date_achieved: dateAchievedInput.value
+            // dream:{
+                name: nameInput.value,
+                image_url: imageInput.value,
+                description: descriptionInput.value,
+                achieved: achievedInput.value,
+                category_id: dropdown.value
 
+            // }
         }
 
         const configObj = {
@@ -47,34 +49,7 @@ class DreamApi {
         })
     }
 
-    // editDream = (dream) => {
-    //     // debugger
-    //     let {name, image_url, description, achieved, date_achieved} = dream
-    //     const dreamInfo = {
-    //         name,
-    //         image_url,
-    //         description,
-    //         achieved,
-    //         date_achieved
-    //     }
-
-    //     const configObj = {
-    //         method: 'PATCH',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             Accept: "application/json"
-    //         },
-    //         body: JSON.stringify(dreamInfo)
-    //     }
-       
-    //     fetch(`${this.baseUrl}/${dream.id}`, configObj)
-    //     .then(r => r.json())
-    //     .then(json => {
-    //         // we are optomistically rendering here since we don't use the json response
-    //         dream.render()
-    //     })
-    // }
-
+    
     deleteDream = (id) => {
         const configObj = {
             method: 'DELETE',
@@ -88,5 +63,35 @@ class DreamApi {
         .then(r => r.json())
         .then(json => alert(json.message))
     }
-
+    
 }
+
+
+
+// editDream = (dream) => {
+//     // debugger
+//     let {name, image_url, description, achieved, date_achieved} = dream
+//     const dreamInfo = {
+//         name,
+//         image_url,
+//         description,
+//         achieved,
+//         date_achieved
+//     }
+
+//     const configObj = {
+//         method: 'PATCH',
+//         headers: {
+//             "Content-Type": "application/json",
+//             Accept: "application/json"
+//         },
+//         body: JSON.stringify(dreamInfo)
+//     }
+   
+//     fetch(`${this.baseUrl}/${dream.id}`, configObj)
+//     .then(r => r.json())
+//     .then(json => {
+        
+//         dream.render()
+//     })
+// }
