@@ -18,6 +18,11 @@ function handleSubmit(e){
     e.target.reset()
 }
 
+function darkMode() {
+    let element = document.body;
+    element.classList.toggle("dark-mode");
+ }
+
 
 dreamApi.getDreams()
 categoryApi.getCategories()
