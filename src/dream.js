@@ -81,6 +81,7 @@ class Dream {
         this.render()
         Dream.container.appendChild(this.element)
     }
+
     
 }
 
