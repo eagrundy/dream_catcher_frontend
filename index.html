@@ -18,7 +18,7 @@
       <a class="navbar-item">
         <img src="images/dream.jpg" alt="site logo" style="max-height: 150px">
         <div class="container">
-          <a class="title is-1">Dreams Catcher</a><br>
+          <a class="title is-1" style="color:rgb(40, 160, 230);">Dreams Catcher</a><br>
           <a class="subtitle">Track your dreams</a>
         </div>
       </a>
@@ -37,7 +37,7 @@
       <input type="text" name="image_url" id="dream-image"><br>
       <label for="dream-description">Description:</label><br>
       <input type="text" name="description" id="dream-description" rows="4" cols="50"><br>
-      <label for="dream-achieved">Achieved?</label><br>
+      <label for="dream-achieved">Achieved? (Yes or Not yet)</label><br>
       <input type="text" name="achieved" id="dream-achieved"><br>
       <label for="cat-dropdown">Category:</label><br>
       <select name="category_id" id="cat-dropdown">
@@ -51,7 +51,9 @@
     <h2><strong>Filter by Category:</strong></h2><br>
     <div id="cat-container"></div>
     <h5><i>Unselect the category you've chosen to see ALL dreams</i></h5><br>
-    <button onclick="darkMode()">Dark mode</button><br>
+    <button onclick="darkMode()">Dark mode</button><br><br>
+    <p><strong>Search:</strong></p>
+    <input id="search"  placeholder="Search a dream"></input>
   </center><br><br>
 
   <center>
