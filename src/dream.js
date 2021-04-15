@@ -60,7 +60,6 @@ class Dream {
 
 
     render() {
-        const isAchieved = this.dateAchieved === "Yes"
         // innerHTMl only replaces what is inside the li
         this.element.innerHTML = `
             <div data-id="${this.id}">
