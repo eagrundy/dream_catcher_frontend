@@ -13,7 +13,7 @@ class Dream {
         this.categoryId = category_id
         this.category = category
 
-        // setup the html element that contain the dream
+        // setup the html element that contains the dream
         this.element = document.createElement('li')
         this.element.dataset["id"] = id
         this.element.id = `dream-${id}`
@@ -40,7 +40,7 @@ class Dream {
         } else {
               // remove all things from DOM
             //   Item.container.innerHTML = ''
-              // use our add to dom and put all the dreams back on
+              // use add to dom and put all the dreams back on
               for(const dream of Dream.all){
                 //   dream.addToDom()
                 dream.element.style.display = ""

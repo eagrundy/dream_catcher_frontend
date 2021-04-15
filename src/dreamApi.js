@@ -20,14 +20,11 @@ class DreamApi {
 
     createDream() {
         const dreamInfo = {
-            // dream:{
                 name: nameInput.value,
                 image_url: imageInput.value,
                 description: descriptionInput.value,
                 achieved: achievedInput.value,
                 category_id: dropdown.value
-
-            // }
         }
 
         const configObj = {
