@@ -23,28 +23,25 @@ class Dream {
         Dream.all.push(this)
     }
 
-    static filterByCategory(filteredCategory){
+    static filterByCategory(filteredCategory) {
         // display only the items in the active category
         // if no categories are active, display all
-        if(filteredCategory){
-            for(const dream of Dream.all){
-                if(dream.categoryId === parseInt(filteredCategory.id)){
+        if (filteredCategory) {
+            for (const dream of Dream.all) {
+                if (dream.categoryId === parseInt(filteredCategory.id)) {
                     //unhide 
                     dream.element.style.display = "";
-                }else{
+                } else {
                     //hide element
                     dream.element.style.display = "none";
                 }
             }
-
         } else {
-              // remove all things from DOM
-            //   Item.container.innerHTML = ''
-              // use add to dom and put all the dreams back on
-              for(const dream of Dream.all){
-                //   dream.addToDom()
+            // remove all things from DOM
+            // put all the dreams back on
+            for (const dream of Dream.all) {
                 dream.element.style.display = ""
-              }
+            }
         }
     }
 
@@ -72,7 +69,7 @@ class Dream {
                 <img src=${this.image_url} width="300" height="300" alt="..."><br><br>
                 <span class="description">${this.description}</span><br><br>
                 <span class="achieved"><u>Achieved?</u> ${this.achieved}</span><br>
-                <span class="dreamCategory"><u>Category</u>: ${this.category.name}</span>
+                <span class="dreamCategory"><u>Category</u>: ${this.category.name}</span><br>
             </div><br>
             <i>Delete this dream ></i>
             <button class="delete is-large" data-id="${this.id}">Delete</button><br>
@@ -85,7 +82,7 @@ class Dream {
         this.render()
         Dream.container.appendChild(this.element)
     }
-
+    
 }
 
 

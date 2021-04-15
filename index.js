@@ -8,7 +8,7 @@ const imageInput = document.getElementById('dream-image')
 const descriptionInput = document.getElementById('dream-description')
 const achievedInput = document.getElementById('dream-achieved')
 const dropdown = document.getElementById('cat-dropdown')
-
+const inputSearch = document.querySelector("#search")
 
 form.addEventListener('submit', handleSubmit)
 
@@ -21,6 +21,12 @@ function handleSubmit(e){
 function darkMode() {
     let element = document.body;
     element.classList.toggle("dark-mode");
+}
+
+inputSearch.addEventListener('keydown', handleKeyDown)
+
+function handleKeyDown () {
+    dreamApi.inputFilter()
 }
 
 

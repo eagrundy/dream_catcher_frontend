@@ -61,6 +61,16 @@ class DreamApi {
         .then(json => alert(json.message))
     }
     
+    inputFilter() {
+        const text = document.querySelector('#search').value
+        const filtered = Dream.all.filter(dream => dream.name.includes(text))
+        //when event is detected, recognize what input is and filter through Coffee.all
+        //present relevant Coffee.all
+        //hide everything else 
+        //display only capp (ex.)
+        document.querySelector("#dream-list").innerHTML = ""
+        filtered.forEach(dream => dream.addToDom())
+    }
 }
 
 

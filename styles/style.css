@@ -80,3 +80,9 @@ html {
     border: 3px solid rgb(220, 225, 230);
     font-size: 16px;
   }
+  input[id="search"] {
+    padding: 10px 20px;
+    border-radius: 5px 0px 0px 5px;
+    border: 2px solid rgb(40, 160, 230);
+    font-size: 15px;
+  }
