@@ -42,6 +42,7 @@ class DreamApi {
             // debugger;
             // renderDream(json.data)
             const d = new Dream({ id: json.data.id, ...json.data.attributes })
+            // const d = new Dream(json)
             d.addToDom()
         })
     }
@@ -64,12 +65,35 @@ class DreamApi {
     inputFilter() {
         const text = document.querySelector('#search').value
         const filtered = Dream.all.filter(dream => dream.name.includes(text))
-        //when event is detected, recognize what input is and filter through Coffee.all
-        //present relevant Coffee.all
-        //hide everything else 
-        //display only capp (ex.)
+        //when event is detected, recognize the input and filter through Dream.all
+        //show chosen Dream.all
+        //hide not chosen
         document.querySelector("#dream-list").innerHTML = ""
         filtered.forEach(dream => dream.addToDom())
+    } 
+
+    sortRender(array){
+        document.querySelector("#dream-list").innerHTML = " "
+        // document.querySelector("#category-list").style.display = "block"
+        // document.querySelector("#category-list").style.display = "none"
+        array.forEach(dream => {
+            let s = new Dream(dream)
+            s.addToDom()
+        })
+    }
+
+    inputSorted() {
+        const text = document.querySelector('#sort').value
+        document.querySelector("#dream-list").innerHTML = " "
+        if(text === "all" ) {
+            this.sortRender(Dream.all)
+        }
+        else{
+        const filtered = Dream.all.filter(dream => dream.achieved.includes(text))
+        // debugger;
+        filtered.forEach(dream => dream.addToDom())
+        // this.sortRender(filtered)
+        }
     }
 }
 

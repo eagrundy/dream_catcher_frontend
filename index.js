@@ -9,6 +9,8 @@ const descriptionInput = document.getElementById('dream-description')
 const achievedInput = document.getElementById('dream-achieved')
 const dropdown = document.getElementById('cat-dropdown')
 const inputSearch = document.querySelector("#search")
+const inputSort = document.querySelector("#sort")
+
 
 form.addEventListener('submit', handleSubmit)
 
@@ -24,12 +26,12 @@ function handleKeyDown () {
     dreamApi.inputFilter()
 }
 
+inputSort.addEventListener('change', handleSort)
+
+function handleSort () {
+    dreamApi.inputSorted()
+}
+
 
 dreamApi.getDreams()
 categoryApi.getCategories()
-
-
-
-
-
-// const dateAchievedInput = document.getElementById('dream-dateachieved')

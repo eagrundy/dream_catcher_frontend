@@ -2,7 +2,7 @@
 class Category {
     static all = []
 
-    static categoryContainer = document.getElementById('cat-container')
+    static categoryList = document.getElementById('category-list')
 
     constructor({ id, name}){
         this.id = id 
@@ -14,26 +14,22 @@ class Category {
         Category.all.push(this)
     }
 
-    dreams(){
-        return Dream.all.filter((dream) => dream.categoryId == this.id)
-    }
     
-
     render(){
         this.element.innerText = this.name 
         this.element.id = `category-${this.id}`
         return this.element
     }
-
+    
     addToDom(){
-        Category.categoryContainer.append(this.render())
+        Category.categoryList.append(this.render())
         this.addListeners()
     }
-
+    
     addListeners(){
         this.element.addEventListener('click', this.setActiveCategory)
     }
-
+    
     setActiveCategory = (e) => {
         let filteredCategory 
         Category.all.forEach(c => {
@@ -45,19 +41,23 @@ class Category {
                 c.element.classList.remove('activated')
                 c.active = false
             }
-
+            
             Dream.filterByCategory(filteredCategory)
         }) 
     }
-
-
+    
+    
     addToDropDown(){
         const option = document.createElement('option')
         option.value  = this.id 
         option.innerText = this.name
         dropdown.append(option)
     }
-   
+    
 }
 
 
+
+// dreams(){
+//     return Dream.all.filter((dream) => dream.categoryId == this.id)
+// }

@@ -1,9 +1,10 @@
 
 class Dream {
-    // store each dreams. static is a class variable
+    // store each dream. static is a class variable
     static all = []
-    static container = document.getElementById('dream-list')
 
+    static container = document.getElementById('dream-list')
+    
     constructor({ id, name, description, image_url, achieved, category_id, category }) {
         this.name = name
         this.description = description
@@ -24,8 +25,10 @@ class Dream {
     }
 
     static filterByCategory(filteredCategory) {
+        // debugger;
         // display only the items in the active category
-        // if no categories are active, display all
+        // if no categories are active, display all dreams
+        // The for...of statement creates a loop iterating over iterable objects
         if (filteredCategory) {
             for (const dream of Dream.all) {
                 if (dream.categoryId === parseInt(filteredCategory.id)) {
@@ -54,7 +57,8 @@ class Dream {
 
 
     deleteDream = (e) => {
-        this.element.remove() // remove it before the fetch request 
+        // remove dream before the fetch request
+        this.element.remove()  
         dreamApi.deleteDream(this.id)
     }
 
@@ -82,7 +86,7 @@ class Dream {
         Dream.container.appendChild(this.element)
     }
 
-    
+   
 }
 
 

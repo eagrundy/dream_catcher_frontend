@@ -18,7 +18,7 @@
       <a class="navbar-item">
         <img src="images/dream.jpg" alt="site logo" style="max-height: 150px">
         <div class="container">
-          <a class="title is-1" style="color:rgb(40, 160, 230);">Dreams Catcher</a><br>
+          <a class="title is-1" style="color:rgb(155, 89, 182);">Dreams Catcher</a><br>
           <a class="subtitle">Track your dreams</a>
         </div>
       </a>
@@ -26,7 +26,7 @@
   </nav><br>
   <!-- </header> -->
 
-  
+
   <center>
     <h1><strong>Add a new Dream:</strong></h1>
     <br>
@@ -41,7 +41,7 @@
       <input type="text" name="achieved" id="dream-achieved"><br>
       <label for="cat-dropdown">Category:</label><br>
       <select name="category_id" id="cat-dropdown">
-        
+
       </select><br>
       <input type="submit" value="Create">
     </form>
@@ -49,13 +49,21 @@
 
   <center>
     <h2><strong>Filter by Category:</strong></h2><br>
-    <div id="cat-container"></div>
+    <div id="category-list"></div>
     <h5><i>Unselect the category you've chosen to see ALL dreams</i></h5><br>
     
-    <!--<button onclick="darkMode()">Dark mode</button><br><br> -->
-
     <p><strong>Search:</strong></p>
-    <input id="search"  placeholder="Search a dream"></input>
+    <input id="search" placeholder="Search dreams by name"></input><br><br><br>
+
+    <h2><strong>Filter by Achieved Dreams:</strong></h2>
+    <select name="sort" id="sort">
+      <option value="all">All</option>
+      <option value="Yes">Yes</option>
+      <option value="Not Yet">Not Yet</option>
+  </select><br><br>
+
+    <!--<button onclick="darkMode()">Dark mode</button><br><br> -->
+    
   </center><br><br>
 
   <center>
@@ -71,10 +79,10 @@
   <!-- footer -->
 
 
-  <script src="src/category.js" type="text/javascript"></script>
-  <script src="src/categoryApi.js" type="text/javascript"></script>
-  <script src="src/dream.js" type="text/javascript"></script>
   <script src="src/dreamApi.js" type="text/javascript"></script>
+  <script src="src/dream.js" type="text/javascript"></script>
+  <script src="src/categoryApi.js" type="text/javascript"></script>
+  <script src="src/category.js" type="text/javascript"></script>
   <script src="index.js" type="text/javascript"></script>
 </body>
 
