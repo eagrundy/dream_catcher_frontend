@@ -32,8 +32,8 @@ html {
   button {
     background-color: white;
     border-radius: 0px 5px 5px 0px;
-    border: 1px solid rgb(40, 160, 230);
-    color: rgb(40, 160, 230);
+    border: 1px solid rgb(155, 89, 182);
+    color: rgb(155, 89, 182);
     padding: 10px 20px;
     text-align: center;
     display: inline-block;
@@ -41,7 +41,7 @@ html {
   }
 
   .activated {
-    background-color:rgb(40, 160, 230);
+    background-color:rgb(155, 89, 182);
     border-radius: 0px 5px 5px 0px;
     border: 1px solid;
     color: white;
@@ -79,6 +79,12 @@ html {
   input[id="search"] {
     padding: 10px 20px;
     border-radius: 5px 0px 0px 5px;
-    border: 2px solid rgb(40, 160, 230);
+    border: 2px solid rgb(155, 89, 182);
     font-size: 15px;
+  }
+  select[id="sort"] {
+    padding: 10px 20px;
+    border-radius: 5px 0px 0px 5px;
+    border: 2px solid rgb(155, 89, 182);
+    font-size: 16px;
   }
