@@ -73,8 +73,8 @@ class DreamApi {
     } 
 
     sortRender(array){
-        document.querySelector("#dream-list").innerHTML = " "
-        // document.querySelector("#category-list").style.display = "block"
+        document.querySelector("#dream-list").innerHTML = ""
+        // document.querySelector("#dream-list").style.display = "block"
         // document.querySelector("#category-list").style.display = "none"
         array.forEach(dream => {
             let s = new Dream(dream)
@@ -84,7 +84,7 @@ class DreamApi {
 
     inputSorted() {
         const text = document.querySelector('#sort').value
-        document.querySelector("#dream-list").innerHTML = " "
+        document.querySelector("#dream-list").innerHTML = ""
         if(text === "all" ) {
             this.sortRender(Dream.all)
         }
