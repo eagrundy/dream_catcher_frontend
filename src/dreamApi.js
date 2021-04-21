@@ -7,11 +7,15 @@ class DreamApi {
     }
 
     getDreams() {
+        // the path to the resource I want to fetch
         fetch(this.baseUrl)
+        // returns a promise containing the response r (a Response object). This is just an HTTP response, not the actual JSON.
         .then(r => r.json())
+        // To extract the JSON body content from the response, we use the json() method
         .then(json => {
             json["data"].forEach(element => {
                 // debugger;
+                // Constructor invocation. A new object is created. "this" points to the newly created onject
                 const d = new Dream({ id: element.id, ...element.attributes })
                 d.addToDom()
             })
@@ -72,21 +76,14 @@ class DreamApi {
         filtered.forEach(dream => dream.addToDom())
     } 
 
-    sortRender(array){
-        document.querySelector("#dream-list").innerHTML = ""
-        // document.querySelector("#dream-list").style.display = "block"
-        // document.querySelector("#category-list").style.display = "none"
-        array.forEach(dream => {
-            let s = new Dream(dream)
-            s.addToDom()
-        })
-    }
+   
 
     inputSorted() {
         const text = document.querySelector('#sort').value
         document.querySelector("#dream-list").innerHTML = ""
         if(text === "all" ) {
-            this.sortRender(Dream.all)
+            const allDreams = Dream.all
+            allDreams.forEach(dream => dream.addToDom())
         }
         else{
         const filtered = Dream.all.filter(dream => dream.achieved.includes(text))
@@ -96,6 +93,12 @@ class DreamApi {
         }
     }
 }
+
+
+
+
+
+
 
 
 
@@ -124,5 +127,18 @@ class DreamApi {
 //     .then(json => {
         
 //         dream.render()
+//     })
+// }
+
+
+    
+    
+// sortRender(array){
+//     document.querySelector("#dream-list").innerHTML = ""
+//     // document.querySelector("#dream-list").style.display = "block"
+//     // document.querySelector("#category-list").style.display = "none"
+//     array.forEach(dream => {
+//         let s = new Dream(dream)
+//         s.addToDom()
 //     })
 // }
