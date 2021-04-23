@@ -88,3 +88,13 @@ html {
     border: 2px solid rgb(155, 89, 182);
     font-size: 16px;
   }
+  .body {
+    padding: 25px;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+}
+ .dark-mode {
+  background-color: black;
+  color: rgb(255, 255, 255);
+}

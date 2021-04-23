@@ -55,7 +55,7 @@ class Dream {
         }
     }
 
-
+    // didn't need to use e, try to refactor
     deleteDream = (e) => {
         // remove dream before the fetch request
         this.element.remove()  
@@ -65,6 +65,7 @@ class Dream {
 
     render() {
         // innerHTMl only replaces what is inside the li
+        // see updated way to write data-id inside delete button
         this.element.innerHTML = `
             <div data-id="${this.id}">
             <li>

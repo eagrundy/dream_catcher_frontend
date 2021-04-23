@@ -23,6 +23,7 @@ class DreamApi {
     }
 
     createDream() {
+        // separate in its own method
         const dreamInfo = {
                 name: nameInput.value,
                 image_url: imageInput.value,
@@ -42,6 +43,7 @@ class DreamApi {
 
         fetch(this.baseUrl, configObj)
         .then(r => r.json())
+        // separate so it does not repeat
         .then(json => {
             // debugger;
             // renderDream(json.data)
@@ -65,6 +67,8 @@ class DreamApi {
         .then(r => r.json())
         .then(json => alert(json.message))
     }
+
+
     
     inputFilter() {
         const text = document.querySelector('#search').value
@@ -76,8 +80,9 @@ class DreamApi {
         filtered.forEach(dream => dream.addToDom())
     } 
 
-   
-
+    // how to put inputFilter and inputSorted to work together? 
+    // when filtering by achieved and choosing all dreams, 
+    // how can I use search if they are not connected?
     inputSorted() {
         const text = document.querySelector('#sort').value
         document.querySelector("#dream-list").innerHTML = ""
@@ -91,6 +96,38 @@ class DreamApi {
         filtered.forEach(dream => dream.addToDom())
         // this.sortRender(filtered)
         }
+    }
+
+    // added for live coding challenge
+    repeatPizza() {
+        // document.querySelector("#dream-list").innerHTML = ""
+        const dreamInfo = {
+            name: "Cheese",
+            image_url: "https://dennys.id/wp-content/uploads/2019/04/skillets-veggie.jpg",
+            description: "Pepperoni pizza is good",
+            achieved: "Yes",
+            category_id: "29"
+    }
+
+    const configObj = {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify(dreamInfo)
+    }
+
+    fetch(this.baseUrl, configObj)
+    .then(r => r.json())
+    .then(json => {
+        // debugger;
+        // renderDream(json.data)
+        const r = new Dream({ id: json.data.id, ...json.data.attributes })
+        // const d = new Dream(json)
+        r.addToDom()
+    })
+
     }
 }
 

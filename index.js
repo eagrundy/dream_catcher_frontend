@@ -10,6 +10,7 @@ const achievedInput = document.getElementById('dream-achieved')
 const dropdown = document.getElementById('cat-dropdown')
 const inputSearch = document.querySelector("#search")
 const inputSort = document.querySelector("#sort")
+const repeatDream = document.getElementById('repeat')
 
 
 form.addEventListener('submit', handleSubmit)
@@ -30,6 +31,18 @@ inputSort.addEventListener('change', handleSort)
 
 function handleSort () {
     dreamApi.inputSorted()
+}
+
+repeatDream.addEventListener('click', handleRepeat)
+
+function handleRepeat () {
+    // console.log("Repeated")
+    dreamApi.repeatPizza()
+}
+
+function darkMode() {
+    let element = document.body;
+    element.classList.toggle("dark-mode");
 }
 
 
